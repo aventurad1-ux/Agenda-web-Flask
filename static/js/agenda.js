@@ -172,6 +172,13 @@ async function cargarRegistros() {
             </td>
 
             <td>
+                 <button
+                      class="btn-editar"
+                      onclick="editarPersona(${persona.id})"
+                  >
+                    Editar
+                 </button>
+
 
                 <button
                     class="btn-eliminar"
@@ -193,6 +200,122 @@ async function cargarRegistros() {
 
 }
 
+// EDITAR PERSONA
+
+async function editarPersona(id) {
+
+    const respuesta =
+        await fetch("/registros");
+
+    const personas =
+        await respuesta.json();
+
+    const persona =
+        personas.find(p => p.id === id);
+
+
+    if (!persona) {
+
+        mostrarMensaje(
+            "Registro no encontrado.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const nuevoNombre =
+        prompt(
+            "Ingrese el nuevo nombre:",
+            persona.nombre
+        );
+
+    if (nuevoNombre === null) {
+        return;
+    }
+
+
+    const nuevoApellido =
+        prompt(
+            "Ingrese el nuevo apellido:",
+            persona.apellido
+        );
+
+    if (nuevoApellido === null) {
+        return;
+    }
+
+
+    const nuevaFecha =
+        prompt(
+            "Ingrese la nueva fecha de nacimiento:",
+            persona.fecha_nacimiento
+        );
+
+    if (nuevaFecha === null) {
+        return;
+    }
+
+
+    const nuevoDia =
+        prompt(
+            "Ingrese el nuevo día de la semana:",
+            persona.dia_semana
+        );
+
+    if (nuevoDia === null) {
+        return;
+    }
+
+
+    const respuestaEditar =
+        await fetch(`/editar/${id}`, {
+
+            method: "PUT",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                nombre: nuevoNombre,
+
+                apellido: nuevoApellido,
+
+                fecha_nacimiento: nuevaFecha,
+
+                dia_semana: nuevoDia
+
+            })
+
+        });
+
+
+    const resultado =
+        await respuestaEditar.json();
+
+
+    if (resultado.success) {
+
+        mostrarMensaje(
+            "Registro actualizado correctamente.",
+            "exito"
+        );
+
+        cargarRegistros();
+
+    } else {
+
+        mostrarMensaje(
+            resultado.mensaje,
+            "error"
+        );
+
+    }
+
+}
 
 // ELIMINAR
 
