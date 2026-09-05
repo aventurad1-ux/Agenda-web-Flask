@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+
+/* ENCABEZADO */
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.encabezado h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.encabezado p {
+    color: #6b7280;
+}
+
+
+/* FORMULARIO */
+
+.formulario {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.formulario h2 {
+    margin-bottom: 25px;
+}
+
+
+/* CAMPOS */
+
+.campos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: #2563eb;
+}
+
+
+/* BOTÓN */
+
+.btn-agregar {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn-agregar:hover {
+    background: #1d4ed8;
+}
+
+
+/* MENSAJE */
+
+.mensaje {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* REGISTROS */
+
+.registros {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.registros h2 {
+    margin-bottom: 20px;
+}
+
+
+/* TABLA */
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #2563eb;
+    color: white;
+}
+
+th,
+td {
+    padding: 13px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+    background: #f9fafb;
+}
+
+
+/* BOTÓN ELIMINAR */
+
+.btn-eliminar {
+    background: #dc2626;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 7px 12px;
+
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background: #b91c1c;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .campos {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor {
+        width: 95%;
+    }
+
+    .formulario,
+    .registros {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agenda</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/estilos.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <header class="encabezado">
+
+            <h1>Agenda</h1>
+
+            <p>
+                Registro de personas
+            </p>
+
+        </header>
+
+
+        <!-- FORMULARIO -->
+
+        <section class="formulario">
+
+            <h2>Agregar persona</h2>
+
+            <form id="formularioAgenda">
+
+                <div class="campos">
+
+                    <!-- NOMBRE -->
+
+                    <div class="campo">
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            placeholder="Ingrese el nombre"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- APELLIDO -->
+
+                    <div class="campo">
+
+                        <label for="apellido">
+                            Apellido
+                        </label>
+
+                        <input
+                            type="text"
+                            id="apellido"
+                            placeholder="Ingrese el apellido"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- FECHA -->
+
+                    <div class="campo">
+
+                        <label for="fechaNacimiento">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input
+                            type="date"
+                            id="fechaNacimiento"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- SELECT -->
+
+                    <div class="campo">
+
+                        <label for="diaSemana">
+                            Día de la semana
+                        </label>
+
+                        <select
+                            id="diaSemana"
+                            required
+                        >
+
+                            <option value="">
+                                Seleccione un día
+                            </option>
+
+                            <option value="Lunes">
+                                Lunes
+                            </option>
+
+                            <option value="Martes">
+                                Martes
+                            </option>
+
+                            <option value="Miércoles">
+                                Miércoles
+                            </option>
+
+                            <option value="Jueves">
+                                Jueves
+                            </option>
+
+                            <option value="Viernes">
+                                Viernes
+                            </option>
+
+                            <option value="Sábado">
+                                Sábado
+                            </option>
+
+                            <option value="Domingo">
+                                Domingo
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-agregar"
+                >
+                    Agregar
+                </button>
+
+            </form>
+
+            <div
+                id="mensaje"
+                class="mensaje"
+            ></div>
+
+        </section>
+
+
+        <!-- TABLA -->
+
+        <section class="registros">
+
+            <h2>Personas registradas</h2>
+
+            <div class="tabla-contenedor">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>Nombre</th>
+
+                            <th>Apellido</th>
+
+                            <th>Fecha de nacimiento</th>
+
+                            <th>Día de la semana</th>
+
+                            <th>Acción</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="listaAgenda">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script
+        src="{{ url_for('static', filename='js/agenda.js') }}"
+    ></script>
+
+</body>
+
+</html>
